@@ -1,0 +1,50 @@
+body{
+    background-color: lightblue;
+}
+
+h1{
+    text-align: center;
+    color: red;
+}
+
+main{
+    background-color: lightgray;
+}
+
+#startGameDiv{
+    text-align: center;
+    color: blue;
+}
+
+#timeRemainingDiv{
+    text-align: center;
+    color: green;
+}
+
+#questionDiv{
+    padding-top: 10px;
+    text-align: center;
+    
+}
+
+#choicesDiv{
+    padding-top: 10px;
+    text-align: center;
+
+}
+
+#rightOrWrongDiv{
+    text-align: center;
+
+}
+
+#correctAnswerDiv{
+    padding-top: 10px;
+    text-align: center;
+
+}
+
+#correctImageDiv{
+    text-align: center;
+
+}
