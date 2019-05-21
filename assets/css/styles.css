@@ -9,8 +9,6 @@ h1{
     font-style: bold;
     color: red;
 }
-
-
 .answer-btn{
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
@@ -25,7 +23,6 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
 #start{
     font-size: 28px;
     font-family: Arial, Helvetica, sans-serif;
@@ -39,7 +36,6 @@ h1{
     height: 60px;
     width: 200px;
 }
-
 #timeRemainingDiv{
     font-family: Arial, Helvetica, sans-serif;
     color: red;
@@ -50,28 +46,21 @@ h1{
     font-size: 18px;
     width: 30%;
 }
-
 #questionDiv{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     text-align: center;
     font-size: 16px;
-    color: royalblue;
-    
+    color: royalblue;   
 }
-
 #choicesDiv{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     text-align: center;
     color: darkred;
-
-
 }
-
 #correctImageDiv{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0 auto;
     text-align: center;
-
 }

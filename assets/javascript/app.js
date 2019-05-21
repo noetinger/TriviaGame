@@ -1,27 +1,27 @@
 //Variables:
 var questions = [{
-        question: "Question 1",
-        choices: ["W", "X", "Y", "Z"],
-        answer: 1, //Answer is the index of choices
+        question: "What is the only mammal that can't jump?",
+        choices: ["Elephant", "Mouse", "Koala", "Giraffe"],
+        answer: 0, //Answer is the index of choices
     },
     {
-        question: "Question 2",
-        choices: ["A", "B", "C", "D"],
+        question: "How many squares are on a Chess Board?",
+        choices: ["52", "56", "64", "72"],
         answer: 2, //Answer is the index of choices
     },
     {
-        question: "Question 3",
-        choices: ["E", "F", "G", "H"],
-        answer: 3, //Answer is the index of choices
+        question: "How many prongs are on a fork?",
+        choices: ["2", "3", "4", "5"],
+        answer: 2, //Answer is the index of choices
     },
     {
-        question: "Question 4",
-        choices: ["I", "J", "K", "L"],
-        answer: 3, //Answer is the index of choices
+        question: "How many bends are in a Paperclip?",
+        choices: ["5", "3", "4", "6"],
+        answer: 1, //Answer is the index of choices
     },
     {
-        question: "Question 5",
-        choices: ["M", "N", "O", "P"],
+        question: "Which is the only U.S. State that only boarders one other State?",
+        choices: ["Maine", "Oregon", "Rhode Island", "Florida"],
         answer: 0, //Answer is the index of choices
     }
 ];
@@ -107,15 +107,16 @@ $("#choicesDiv").on("click", ".answer-btn", function(){
     console.log(chosenQuestion.choices); //logs choices
     console.log(chosenQuestion.answer); //logs answer index
     //Check and compare answer function
-    if(questionCounter === (questions.length - 1)){
-        gameOver();
-    }
-    else if(userChoice === chosenQuestion.answer){
+    if(userChoice === chosenQuestion.answer){
         stopTimer();
         correctAnswers++;
         $("#questionDiv").text("You are correct!")
         userChoice = "";
         setTimeout(nextQuestion, 3000);
+
+        if(questionCounter === (questions.length - 1)){
+            gameOver();
+        }
     }
     else {
         console.log(userChoice)
@@ -125,6 +126,10 @@ $("#choicesDiv").on("click", ".answer-btn", function(){
         $("#questionDiv").text("You are incorrect!")
         $("#choicesDiv").text("The answer is: " + chosenQuestion.choices[chosenQuestion.answer])
         setTimeout(nextQuestion, 3000);
+
+        if(questionCounter === (questions.length - 1)){
+            gameOver();
+        }
     }
 })
 
