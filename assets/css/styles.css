@@ -3,48 +3,75 @@ body{
 }
 
 h1{
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    font-style: bold;
     color: red;
 }
 
-main{
-    background-color: lightgray;
+
+.answer-btn{
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80px;
+    height: 40px;
+    background-color: darkgray;
+    color: darkred;
+    border: 3px solid royalblue;
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#startGameDiv{
-    text-align: center;
-    color: blue;
+#start{
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgray;
+    color: darkred;
+    border: 3px solid royalblue;
+    height: 60px;
+    width: 200px;
 }
 
 #timeRemainingDiv{
-    text-align: center;
-    color: green;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    width: 30%;
 }
 
 #questionDiv{
-    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
     text-align: center;
+    font-size: 16px;
+    color: royalblue;
     
 }
 
 #choicesDiv{
-    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
     text-align: center;
+    color: darkred;
 
-}
-
-#rightOrWrongDiv{
-    text-align: center;
-
-}
-
-#correctAnswerDiv{
-    padding-top: 10px;
-    text-align: center;
 
 }
 
 #correctImageDiv{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
     text-align: center;
 
 }
