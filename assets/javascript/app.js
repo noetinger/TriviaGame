@@ -25,29 +25,23 @@ var questions = [{
         answer: 0, //Answer is the index of choices
     }
 ];
-
 var userChoice = " " ; //User selection
 var questionCounter = 0; //Question #
 var correctAnswers = 0; //# of correct answers
 var incorrectAnswers = 0; //# of incorrect answers
 var unansweredQuestions = 0; //# of unanswered questions
-var timeRemaining = 5; //Timer
+var timeRemaining = 10; //Timer
 var running = false;
 var timeInterval;
 var chosenQuestion;
 var questionCounter = 0;
-
-
 //Start Game Function
-
 $("#start").click(function () {
     $("#start").hide();
     $("#startGameDiv").hide();
     showQuestions()
     timer()
 })
-
-
 //Timer Function
 function timer() {
     if (!running) {
@@ -55,7 +49,6 @@ function timer() {
         running = true;
     }
 };
-
 function decrement() {
     $("#timeRemainingDiv").text("Time Remaining: " + timeRemaining + " seconds!");
     timeRemaining--;
@@ -63,27 +56,23 @@ function decrement() {
     if((timeRemaining === -1) && (questionCounter === (questions.length - 1))){
         gameOver();
     }
-
     else if (timeRemaining === -1) {
         stopTimer()
         unansweredQuestions++;
         $("#timeRemainingDiv").text("Time is up!")
         $("#choicesDiv").text("The answer is: " + chosenQuestion.choices[chosenQuestion.answer])
-        setTimeout(nextQuestion, 3000);
+        setTimeout(nextQuestion, 5000);
     }
 }
-
 function stopTimer() {
     running = false;
     clearInterval(timeInterval);
 }
-
 //Question Function
 function showQuestions() {
     chosenQuestion = questions[questionCounter];
     //show question
     $("#questionDiv").html("Question: <br>" + chosenQuestion.question + "");
-
     //show choices
     for (var j = 0; j < chosenQuestion.choices.length; j++) {
         //Create button
@@ -98,7 +87,6 @@ function showQuestions() {
         $("#choicesDiv").append(answerButton);
     }
 };
-
 //Click Function
 $("#choicesDiv").on("click", ".answer-btn", function(){
     userChoice = parseInt($(this).attr("data-value"));
@@ -112,33 +100,45 @@ $("#choicesDiv").on("click", ".answer-btn", function(){
         correctAnswers++;
         $("#questionDiv").text("You are correct!")
         userChoice = "";
-        setTimeout(nextQuestion, 3000);
+        setTimeout(nextQuestion, 5000);
 
         if(questionCounter === (questions.length - 1)){
-            gameOver();
+            setTimeout(gameOver, 5000);
         }
     }
-    else {
+    else if(userChoice != chosenQuestion.answer){
         console.log(userChoice)
         stopTimer();
         incorrectAnswers++;
         userChoice = "";
         $("#questionDiv").text("You are incorrect!")
         $("#choicesDiv").text("The answer is: " + chosenQuestion.choices[chosenQuestion.answer])
-        setTimeout(nextQuestion, 3000);
+        setTimeout(nextQuestion, 5000);
 
         if(questionCounter === (questions.length - 1)){
-            gameOver();
+            setTimeout(gameOver, 5000);
+        }
+    }
+    else {
+        console.log(userChoice)
+        stopTimer();
+        unansweredQuestions++;
+        userChoice = "";
+        $("#questionDiv").text("You are incorrect!")
+        $("#choicesDiv").text("The answer is: " + chosenQuestion.choices[chosenQuestion.answer])
+        setTimeout(nextQuestion, 5000);
+
+        if(questionCounter === (questions.length - 1)){
+            setTimeout(gameOver, 5000);
         }
     }
 })
-
 //Next Question Function
 function nextQuestion (){
     $("#choicesDiv").empty()
     questionCounter++; //then use setTimeout to call function
     showQuestions();
-    timeRemaining = 5;
+    timeRemaining = 10;
     timer()
 }
 //Game Over Function / Final Standings
@@ -159,7 +159,6 @@ function gameOver (){
 
         setTimeout(resetGame, 5000);
 }
-
 //Reset game function
 function resetGame (){
     $("#timeRemainingDiv").empty();
@@ -169,7 +168,7 @@ function resetGame (){
     correctAnswers = 0; 
     incorrectAnswers = 0; 
     unansweredQuestions = 0
-    timeRemaining = 5
+    timeRemaining = 10
     showQuestions()
     timer()
 }
